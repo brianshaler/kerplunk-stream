@@ -99,7 +99,7 @@ module.exports = React.createFactory React.createClass
       ,
         Avatar
           identity: item.identity
-          sourceIcon: @props.globals.public.activityItem.icons[item.platform]
+          sourceIcon: @props.globals.public.activityItem.icons?[item.platform]
         DOM.span
           className: 'stream-item-author'
         ,
