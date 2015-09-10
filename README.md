@@ -1,6 +1,6 @@
 # kerplunk-stream
 
-[Kerplunk](https://github.com/brianshaler/kerplunk) plugin. 
+[Kerplunk](https://github.com/brianshaler/kerplunk) plugin. Adds a dashboard view that allows you to see and interact with ActivityItems in a list.
 
 [![Build Status](https://travis-ci.org/brianshaler/kerplunk-stream.svg)](https://travis-ci.org/brianshaler/kerplunk-stream)
 [![npm version](https://img.shields.io/npm/v/kerplunk-stream.svg)](https://www.npmjs.com/package/kerplunk-stream)
