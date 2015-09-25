@@ -6,5 +6,5 @@ module.exports = (System) ->
         'kerplunk-stream:stream':
           description: 'Stream! (recent posts)'
           sort: 'desc'
-      styles:
-        'kerplunk-stream/css/streamitem.css': ['/admin/dashboard', '/admin/dashboard/**']
+      css:
+        'kerplunk-stream:streamItem': 'kerplunk-stream/css/streamitem.css'
