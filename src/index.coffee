@@ -8,3 +8,4 @@ module.exports = (System) ->
           sort: 'desc'
       css:
         'kerplunk-stream:streamItem': 'kerplunk-stream/css/streamitem.css'
+        'kerplunk-stream:avatar': 'kerplunk-stream/css/streamitem.css'
