@@ -2,7 +2,7 @@
   "name": "kerplunk-stream",
   "displayName": "ActivityItem Stream View",
   "description": "Adds a dashboard view that allows you to see and interact with ActivityItems in a list.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "kerplunk": {
     "dependencies": [
       "kerplunk-activityitem",
