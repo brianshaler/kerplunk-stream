@@ -6,7 +6,7 @@ ReactiveData = require 'reactive-data'
 
 module.exports = React.createFactory React.createClass
   getInitialState: ->
-    ids = _.compact _.pluck (@props.data ? []), '_id'
+    ids = _.compact _.map (@props.data ? []), '_id'
 
     ids: ids
     latestUpdatedAt: null
@@ -32,7 +32,7 @@ module.exports = React.createFactory React.createClass
     _ ids
     .map (id) => @props.Repository.getLatest id
     .sortBy (item) -> -1 * Date.parse item.postedAt
-    .pluck '_id'
+    .map '_id'
     .value()
 
   refresh: ->
@@ -66,7 +66,7 @@ module.exports = React.createFactory React.createClass
         latestUpdatedAt = updatedAt if updatedAt > latestUpdatedAt
         oldestPost = postedAt if oldestPost == 0 or postedAt < oldestPost
 
-      newIds = _.pluck items, '_id'
+      newIds = _.map items, '_id'
       newIds = _.filter newIds, (id) =>
         -1 == @state.ids.indexOf id
       # console.log 'newIds', newIds
@@ -86,7 +86,8 @@ module.exports = React.createFactory React.createClass
       @refreshLater()
 
   render: ->
-    ItemComponent = @props.getComponent @props.globals.public.streamItem
+    componentPath = @props.stream.attributes?.streamItem ? @props.globals.public.streamItem
+    ItemComponent = @props.getComponent componentPath
 
     #activityItems = @state.activityItems
     list = _.map @state.ids, (id, index) =>
@@ -96,5 +97,7 @@ module.exports = React.createFactory React.createClass
     unless list.length > 0
       list = DOM.div null, 'no items'
 
-    DOM.div null,
+    DOM.div
+      className: 'activityitem-list'
+    ,
       list

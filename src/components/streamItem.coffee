@@ -49,7 +49,7 @@ module.exports = React.createFactory React.createClass
 
   componentDidMount: ->
     @item = ReactiveData.Item
-      key: @props.itemId
+      key: @props.itemId ? @state.item?._id
       Repository: @props.Repository
     @item.listen @, 'item'
 
@@ -72,6 +72,8 @@ module.exports = React.createFactory React.createClass
       expanded: false
 
   render: ->
+    unless @state.item?._id
+      console.log 'cannot show item yet', @state.item
     return DOM.div null, 'loading ' + @props.itemId unless @state.item?._id
     expanded = if @state.expanded?
       @state.expanded

@@ -42,7 +42,7 @@ module.exports = React.createFactory React.createClass
       ,
         DOM.img
           src: @state.url
-          style:
+          style: unless @props.nosize
             width: @state.width
             height: @state.height
     else
